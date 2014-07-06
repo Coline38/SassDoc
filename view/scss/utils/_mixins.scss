@@ -1,0 +1,13 @@
+@mixin r($bp) {
+  @if $bp == small {
+    @media (max-width: 600px) {
+  	  @content;
+    }
+  }
+
+  @if $bp == medium {
+    @media (min-width: 600px) {
+  	  @content;
+    }
+  } 
+}

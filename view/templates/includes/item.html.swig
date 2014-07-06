@@ -1,4 +1,4 @@
-<section class="sassdoc__item  {% if item.alias %}sassdoc__item--alias{% endif %}" id="{{ item.context.type }}-{{ item.context.name }}" data-type="{{item.context.type}}" data-name="{{item.context.name}}">
+<section class="sassdoc__item  {% if item.alias %}sassdoc__item--alias{% endif %}" id="{{ item.context.type }}-{{ item.context.name }}" data-type="{{ item.context.type }}" data-name="{{ item.context.name }}">
 
   {% include 'annotations/name.html.swig' %}
 

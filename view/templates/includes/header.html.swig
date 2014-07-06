@@ -1,6 +1,13 @@
 <header class="sassdoc__header">
   <div class="container">
     <h1 class="sassdoc__title">{{ title }}</h1>
-    <p class="sassdoc__count">{{ item_count }} item{% if item_count > 1 %}s{% endif %} documented</p>
+
+    <div class="sassdoc__searchbar  searchbar">
+      <label for="js-search-input">Search</label>
+      <form class="searchbar__form">
+        <input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" />
+        <ul class="searchbar__suggestions" id="js-search-suggestions"></ul>
+      </form>
+    </div>
   </div>
 </header>

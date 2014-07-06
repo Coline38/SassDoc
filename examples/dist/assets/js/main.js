@@ -1,11 +1,15 @@
 /* global document, Fuse */
 'use strict';
 
-var search = (function(){
+var search = (function () {
 
-  var getItems = function(){
-    return Array.prototype.slice.call(document.querySelectorAll('.sassdoc__item')).map(function(item){
-      return { name : item.dataset.name, type : item.dataset.type, node : item };
+  var getItems = function () {
+    return Array.prototype.slice.call(document.querySelectorAll('.sassdoc__item')).map(function (item) {
+      return { 
+        name: item.dataset.name, 
+        type: item.dataset.type, 
+        node: item
+      };
     });
   };
 
@@ -21,30 +25,32 @@ var search = (function(){
 })();
 
 
-(function(search){
+(function (search) {
 
   var searchInput = document.querySelector('#js-search-input');
   var searchSuggestions = document.querySelector('#js-search-suggestions');
 
-  var fillSuggestions = function(items){
+  var fillSuggestions = function (items) {
     searchSuggestions.innerHTML = '';
-    items.slice(0,10).forEach(function(item){
+    items.slice(0, 10).forEach(function (item) {
       var li = document.createElement('li');
-          li.innerHTML = '<a href="#'+item.type+'-'+item.name+'"><code>' + item.type + '</code> ' + item.name + '</a>';
+          li.innerHTML = '<a href="#' + item.type + '-' + item.name + '"><code>' + item.type.slice(0, 3) + '</code> ' + item.name + '</a>';
+      
       searchSuggestions.appendChild(li);
     });
   };
 
-  var performSearch = function(term){
+  var performSearch = function (term) {
     var result = search(term);
     fillSuggestions(result);
   };
 
 
-  searchInput.addEventListener('keyup', function(){
+  searchInput.addEventListener('keyup', function () {
+    performSearch(searchInput.value);
+  });
+
+  searchInput.addEventListener('search', function () {
     performSearch(searchInput.value);
   });
 })(search);
-
-
-

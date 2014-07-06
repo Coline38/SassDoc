@@ -13,15 +13,17 @@
  * Main title
  */
 .sassdoc__title {
-  font-size: 1em;
+  font-size: 1.3em;
   margin: 0;
   float: left;
+  
+  @include r(small) {
+    float: none;
+    text-align: center;
+    margin-bottom: .5em;
+  }
 }
 
-/**
- * Item count
- */
-.sassdoc__count {
+.sassdoc__searchbar {
   float: right;
-  margin: 0;
 }

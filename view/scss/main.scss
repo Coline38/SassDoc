@@ -1,8 +1,10 @@
 @import "utils/variables";
+@import "utils/mixins";
 @import "vendors/prism";
 @import "base/base";
 @import "components/map";
 @import "components/header";
+@import "components/searchbar";
 
 /**
  * Main container
@@ -10,16 +12,21 @@
 .container {
   width: 1170px;
   margin: 0 auto;
-  overflow: hidden;
   padding: 0 1em;
   max-width: 100%;
+  
+  &::after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 }
 
 /**
  * Main wrapper
  */
 .sassdoc__container {
-  @media (min-width: 600px) {
+  @include r(medium) {
     width: 70%;
     float: right;
     margin-top: 1.25em;
@@ -127,7 +134,7 @@
 /**
  * Parameters table
  */
-@media (max-width: 600px) {
+@include r(small) {
   table, tbody, tr, td, th {
     display: block;
   }
@@ -175,7 +182,7 @@
   }
 }
 
-@media (min-width: 600px) {
+@include r(medium) {
   .sassdoc__item-parameters > tbody > tr:first-of-type > td {
     border-top: none;
   }

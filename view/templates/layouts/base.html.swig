@@ -17,11 +17,6 @@
 </head>
 <body>
   <div class="sassdoc">
-    <div class="searchbar">
-       <input name="search" type="text" id="js-search-input"/>
-       <ul class="searchbar__suggestions" id="js-search-suggestions">
-       </ul>
-    </div>
     {% set item_count = 0 %}
 
     {% for group, object in data %}
