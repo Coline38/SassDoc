@@ -10,7 +10,7 @@ var search = (function(){
   };
 
   var options = {
-    keys: ['name', 'type'],
+    keys: ['name'],
     threshold : 0.3
   };
 
@@ -30,7 +30,7 @@ var search = (function(){
     searchSuggestions.innerHTML = '';
     items.slice(0,10).forEach(function(item){
       var li = document.createElement('li');
-          li.innerHTML = '<code>' + item.type + '</code> ' + item.name;
+          li.innerHTML = '<a href="#'+item.type+'-'+item.name+'"><code>' + item.type + '</code> ' + item.name + '</a>';
       searchSuggestions.appendChild(li);
     });
   };
